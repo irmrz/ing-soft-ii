@@ -1,0 +1,7 @@
+range T = 0..9
+SENSOR = LEVEL[5],
+LEVEL[i:T] = ( when (i < 9) subir -> LEVEL[i+1]
+			 | when (i > 0) bajar -> LEVEL[i-1]
+			 | when (i < 2) bajo -> LEVEL[i]
+			 | when (i > 8) alto -> LEVEL[i]).
+

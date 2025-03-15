@@ -1,0 +1,4 @@
+const N = 2
+range T = 0..N
+VARIABLE = VARIABLE[N],
+VARIABLE[i:T] = (read[i] -> VARIABLE[i] | write[j:T] -> VARIABLE[j]).

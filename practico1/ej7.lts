@@ -1,0 +1,10 @@
+BEBIDAS = PAGO[0],
+PAGO[i:0..30] = ( when (i < 15) cinco -> PAGO[i+5] 
+|when (i < 15) diez -> PAGO[i+10] 
+|when (i < 15) quince -> PAGO[i+15] 
+|when (i < 15) veinte -> PAGO[i+20]
+| when (i >= 15) cambio -> CAMBIO[i-15]),
+CAMBIO[i:0..30] = (when (i == 0) entregar -> BEBIDAS 
+				| when (i == 5) devolver5 -> CAMBIO[i-5]
+				| when (i == 10) devolver10 -> CAMBIO[i-10]
+				| when (i == 15) devolver15 -> CAMBIO[i-15]).

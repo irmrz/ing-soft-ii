@@ -1,0 +1,4 @@
+range T = 88..108
+RADIO = (on -> FREQ[108]),
+FREQ[i:T] = (off -> RADIO | reset -> FREQ[108] | when (i < 88) scan -> FREQ[i-1]).
+

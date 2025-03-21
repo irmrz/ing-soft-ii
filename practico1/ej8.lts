@@ -1,4 +1,8 @@
 range T = 88..108
 RADIO = (on -> FREQ[108]),
-FREQ[i:T] = (off -> RADIO | reset -> FREQ[108] | when (i < 88) scan -> FREQ[i-1]).
+FREQ[i:T] = (off -> RADIO | reset -> FREQ[108] | scan -> SCAN[108]),
+SCAN[i:T] = (when (i > 88) notfound -> SCAN[i-1]
+			|when (i == 88) notfound -> FREQ[108]
+			|found -> FREQ[i]
+			| off -> RADIO).
 

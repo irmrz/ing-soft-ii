@@ -1,0 +1,13 @@
+const N = 2
+range T = 0..N
+
+PERSON= (arrive -> leave -> PERSON).
+
+EAST = (enableE -> OPEN),
+OPEN = (disableE -> EAST | arrive[i:T] -> OPEN).
+
+CONTROL = (enableE -> CONTROL | disableE -> CONTROL).
+
+WEST = (leave[i:T] -> WEST).
+
+||MUSEUM = (EAST || CONTROL || WEST || PERSON).

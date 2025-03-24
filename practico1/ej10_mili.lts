@@ -1,0 +1,24 @@
+// Mili's Version
+const N=3
+range T = 0..N
+
+EAST = (open_gate ->OPEN),
+OPEN = (close_gate->EAST
+	   |arrive->OPEN).
+
+WEAST = (open_gate ->OPEN_W),
+OPEN_W = (departure->OPEN_W).
+
+CONTROLER = CONTROLER[0],
+CONTROLER[i:T] = (when (i<N)arrive->CONTROLER[i+1]
+                 |when (i>0) departure ->CONTROLER[i-1]
+			     |open_gate->CONTROLER[i]
+			     |close_gate->CONTROLER[i]).
+
+
+
+DIRECTOR = (open_gate->DIRECTOR
+		   |close_gate->DIRECTOR).
+
+
+||MUSEO = (EAST||CONTROLER||DIRECTOR||WEAST).

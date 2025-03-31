@@ -1,0 +1,7 @@
+const N = 5
+range T = 1..N
+
+SILLA = (reservar -> STOP).
+
+TERMINAL = (elegir -> RESERVAR[0]),
+RESERVAR[i:T] = ().

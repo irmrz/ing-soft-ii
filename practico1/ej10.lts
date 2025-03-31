@@ -1,13 +1,28 @@
-const N = 2
-range T = 0..N
+const K = 2
+const N = 3
+const M = 4
+range T = 0..K
 
-PERSON= (arrive -> leave -> PERSON).
+READ = (acquireR -> READING),
+READING = (read -> READING
+		  |releaseR -> READ).
 
-EAST = (enableE -> OPEN),
-OPEN = (disableE -> EAST | arrive[i:T] -> OPEN).
+WRITE = (acquireW -> WRITING),
+WRITING = (read -> WRITING 
+		  |write -> WRITING
+		  |releaseW -> WRITE).
 
-CONTROL = (enableE -> CONTROL | disableE -> CONTROL).
+// CONTROL[i][j]
+CONTROL = CONTROL[0][0][K],
+CONTROL[i:0..N][j:0..M][k:T]= (
+	when (j == 0 && k > 0) acquireR -> CONTROL[i+1][j][k-1]
+   |when (i == 0 && j == 0 && k > 0) acquireW -> CONTROL[i][j+1][k-1]
+   |when (i > 0 && k < K) releaseR -> CONTROL[i-1][j][k+1]
+   |when (j > 0 && k < K) releaseW -> CONTROL[i][j-1][k+1]
+). 
 
-WEST = (leave[i:T] -> WEST).
-
-||MUSEUM = (EAST || CONTROL || WEST || PERSON).
+||SYS = (CONTROL || r[0..N]:READ || w[0..M]:WRITE)/
+	 {w[0..M].acquireW/acquireW,
+	  w[0..M].releaseW/releaseW,
+	  r[0..N].acquireR/acquireR,
+      r[0..N].releaseR/releaseR}.

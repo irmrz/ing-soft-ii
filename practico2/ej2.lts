@@ -1,0 +1,28 @@
+const K = 2
+const N = 3
+const M = 4
+range T = 0..K
+
+READ = (read.acquire -> READING),
+READING = (read -> READING
+		  |read.release -> READ).
+
+WRITE = (write.acquire -> WRITING),
+WRITING = (read -> WRITING 
+		  |write -> WRITING
+		  |write.release -> WRITE).
+
+// CONTROL[i][j]
+CONTROL = CONTROL[0][0][K],
+CONTROL[i:0..N][j:0..M][k:T]= (
+	when (k>0 && i < N && j==0) read.acquire -> CONTROL[i+1][j][k-1]
+   |when (k>0 && i == 0 && j == 0) write.acquire -> CONTROL[i][j+1][k-1]
+   |when (i > 0 && k < K) read.release -> CONTROL[i-1][j][k+1]
+   |when (j > 0 && k < K) write.release -> CONTROL[i][j-1][k+1]
+). 
+
+||SYS = (CONTROL || r[0..N]:READ || w[0..M]:WRITE)
+	/{r.[0..N].read.acquire/read.acquire,
+	  r.[0..N].read.release/read.release,
+	  w.[0..M].write.acquire/write.acquire,
+	  w.[0..M].write.release/write.release}.

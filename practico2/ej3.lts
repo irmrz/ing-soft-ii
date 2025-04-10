@@ -1,7 +1,15 @@
-const N = 5
-range T = 1..N
+const N = 2 // Cantidad de Asientos
+const M = 4 // Cantidad de Terminales
+range S = 1..N
+range T = 1..M
 
-SILLA = (reservar -> STOP).
+SILLA = SILLA[0],
+SILLA[i:0..1] = (when (i==0) reservar -> SILLA[1]
+				|when (i==1) liberar -> SILLA[0]).
 
-TERMINAL = (elegir -> RESERVAR[0]),
-RESERVAR[i:T] = ().
+TERMINAL = (mostrar[i:S] -> (
+	[i].reservar -> TERMINAL
+	| [i].liberar -> TERMINAL 
+	| ver -> TERMINAL)).
+
+||TERMINALES = (TERMINAL || [s:S]:SILLA).

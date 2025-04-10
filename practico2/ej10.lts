@@ -1,0 +1,15 @@
+const N = 4
+
+SILLAS = SILLAS[N],
+SILLAS[i:1..N] = (when (i>1) esperar -> SILLAS[i-1]
+				| when (i<N) listo -> SILLAS[i+1]).
+
+PELUQUERO = (hayClientes -> cortar -> listo -> PELUQUERO
+			|noHayClientes -> dormir -> PELUQUERO).
+
+PELUQUERIA = PELUQUERIA[0],
+PELUQUERIA[i:0..N] = (when (i<N) entra -> INSIDE[i+1]),
+INSIDE[i:1..N] = (when (i==N) irse -> PELUQUERIA[i-1]
+				| when (i<N) esperar -> INSIDE[i]).
+
+||PELU = (SILLAS || tano:PELUQUERO || mateo:PELUQUERO || PELUQUERIA).

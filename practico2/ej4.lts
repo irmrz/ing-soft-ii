@@ -1,0 +1,12 @@
+const M = 4 // Porciones
+const N = 5 // Cantidad de Salvajes
+
+COCINERO = (llenar -> COCINERO).
+
+OLLA = OLLA[M],
+OLLA[m:0..M] = (when (m == 0) llenar -> OLLA[M]
+			  | when (m > 0) [i:1..N].servirse -> OLLA[m-1]).
+
+SALVAJE = (servirse -> SALVAJE).
+
+||SYS = ([i:1..N]:SALVAJE || OLLA || COCINERO).

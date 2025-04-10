@@ -1,0 +1,15 @@
+const N = 1 // Libros
+const M = 1 // Cliente(s)
+
+EDITORIAL = (consulta[i:1..N] -> STOCK[i]),
+STOCK[i:1..N] = (hay -> aceptar -> EDITORIAL | noHay -> NOSTOCK),
+NOSTOCK = (rechazar -> EDITORIAL).
+
+TARJETA = (consulta[j:1..M] -> FONDOS[j]),
+FONDOS[j:1..M] = (tieneFondos -> aceptar -> TARJETA | noTieneFondos -> SINFONDOS),
+SINFONDOS = (rechazar -> TARJETA).
+
+COMPRAR = (hay -> tieneFondos -> aceptar -> COMPRAR 
+		| {noHay, noTieneFondos} -> rechazar -> COMPRAR).
+
+||EMPRESA = (EDITORIAL || TARJETA || COMPRAR).

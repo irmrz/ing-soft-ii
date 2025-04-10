@@ -1,0 +1,12 @@
+const N = 5 // Maxima cantidad de mensajes
+
+PRODUCER = (put -> PRODUCER).
+
+CONSUMER = (get -> CONSUMER).
+
+BUFFER = BUFFER[0],
+BUFFER[i:0..N] = (when (i < N) put -> BUFFER[i+1]
+				| when (i > 0) get -> BUFFER[i-1]).
+
+||SYS = (BUFFER || PRODUCER || CONSUMER).
+

@@ -1,0 +1,3 @@
+(c) No hay una bisimulación porque s0 no simula a t0.
+
+

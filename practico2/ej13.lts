@@ -1,0 +1,3 @@
+P = (a -> (b -> STOP | tauu -> c -> STOP)).
+
+Q = (a -> (b -> STOP | tauu -> c -> STOP) | a -> c -> STOP).

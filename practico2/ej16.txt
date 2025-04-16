@@ -1,0 +1,23 @@
+(a) Bisimulacion entre s0 y r0
+
+(s0, r0) (s1, r2) (s2, r1)
+
+s0 a s0   r0 a r0
+s0 a s1   r0 a r2
+s1 c s2   r2 c r2
+s2 c s1   r2 c r2
+
+s0 b s2   r0 tau r1 lo cual no cuenta
+
+NO HAY Bisimulacion
+
+(c) Bisimulacion debil entre s0 y r0
+
+(s0, r0) (s1, r1) (s2, r2)
+
+s0 a s0   r0 a r0
+s0 a s1   r0 tau a r1
+s0 b s2   r0 tau b r2
+s2 c s1   r2 c r2
+
+(s1, r2) no esta en R ==> No hay bisimulacion

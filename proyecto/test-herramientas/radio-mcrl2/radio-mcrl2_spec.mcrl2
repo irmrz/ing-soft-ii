@@ -1,0 +1,20 @@
+act
+  on, off, reset, scan, found, notfound;
+
+proc
+  RADIO = on . FREQ(108);
+
+  FREQ(i: Int) =
+      off   . RADIO
+    + reset . FREQ(108)
+    + scan  . SCAN(108);
+
+  SCAN(i: Int) =
+	(i > 0) -> (
+      (i > 88) -> (notfound . SCAN(i-1))
+    + (i == 88) -> (notfound . FREQ(108))
+    + found . FREQ(i)
+    + off . RADIO) <> delta;
+
+init
+  RADIO;

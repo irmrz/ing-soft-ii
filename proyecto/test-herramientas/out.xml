@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cprover>
+<program>CBMC 6.5.0 (cbmc-6.5.0)</program>
+<message type="STATUS-MESSAGE">
+  <text>CBMC version 6.5.0 (cbmc-6.5.0) 64-bit arm64 macos</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Type-checking file1</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generating GOTO Program</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Adding CPROVER library (arm64)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Removal of function pointers and virtual functions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generic Property Instrumentation</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Starting Bounded Model Checking</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Passing problem to propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>converting SSA</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Building error trace</text>
+</message>
+
+<result property="main.pointer_dereference.1" status="SUCCESS">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+</result>
+
+<result property="main.pointer_dereference.2" status="SUCCESS">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+</result>
+
+<result property="main.pointer_dereference.3" status="SUCCESS">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+</result>
+
+<result property="main.pointer_dereference.4" status="SUCCESS">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+</result>
+
+<result property="main.pointer_dereference.5" status="FAILURE">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+  <goto_trace>
+    <location-only hidden="false" step_nr="1" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="24" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+    </location-only>
+    <function_call hidden="true" step_nr="2" thread="0">
+      <function display_name="__CPROVER_initialize" identifier="__CPROVER_initialize">
+        <location file="&lt;built-in-additions&gt;" line="24" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      </function>
+      <location file="&lt;built-in-additions&gt;" line="24" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+    </function_call>
+    <assignment assignment_type="state" base_name="__CPROVER_dead_object" display_name="__CPROVER_dead_object" hidden="true" identifier="__CPROVER_dead_object" mode="C" step_nr="3" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="8" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>const void *</full_lhs_type>
+      <full_lhs>__CPROVER_dead_object</full_lhs>
+      <full_lhs_value>NULL</full_lhs_value>
+    </assignment>
+    <assignment assignment_type="state" base_name="__CPROVER_deallocated" display_name="__CPROVER_deallocated" hidden="true" identifier="__CPROVER_deallocated" mode="C" step_nr="4" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="7" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>const void *</full_lhs_type>
+      <full_lhs>__CPROVER_deallocated</full_lhs>
+      <full_lhs_value>NULL</full_lhs_value>
+    </assignment>
+    <assignment assignment_type="state" base_name="__CPROVER_max_malloc_size" display_name="__CPROVER_max_malloc_size" hidden="true" identifier="__CPROVER_max_malloc_size" mode="C" step_nr="5" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="12" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>__CPROVER_size_t</full_lhs_type>
+      <full_lhs>__CPROVER_max_malloc_size</full_lhs>
+      <full_lhs_value binary="0000000010000000000000000000000000000000000000000000000000000000">36028797018963968ul</full_lhs_value>
+    </assignment>
+    <assignment assignment_type="state" base_name="__CPROVER_memory_leak" display_name="__CPROVER_memory_leak" hidden="true" identifier="__CPROVER_memory_leak" mode="C" step_nr="6" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="9" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>const void *</full_lhs_type>
+      <full_lhs>__CPROVER_memory_leak</full_lhs>
+      <full_lhs_value>NULL</full_lhs_value>
+    </assignment>
+    <assignment assignment_type="state" base_name="__CPROVER_rounding_mode" display_name="__CPROVER_rounding_mode" hidden="true" identifier="__CPROVER_rounding_mode" mode="C" step_nr="7" thread="0">
+      <location file="&lt;built-in-additions&gt;" line="16" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>signed int</full_lhs_type>
+      <full_lhs>__CPROVER_rounding_mode</full_lhs>
+      <full_lhs_value binary="00000000000000000000000000000000">0</full_lhs_value>
+    </assignment>
+    <function_return hidden="true" step_nr="8" thread="0">
+      <function display_name="__CPROVER_initialize" identifier="__CPROVER_initialize">
+        <location file="&lt;built-in-additions&gt;" line="24" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      </function>
+    </function_return>
+    <input hidden="false" step_nr="10" thread="0">
+      <input_id>argc</input_id>
+      <value>0</value>
+      <value_expression>
+        <integer binary="00000000000000000000000000000000" c_type="int" width="32">0</integer>
+      </value_expression>
+    </input>
+    <assignment assignment_type="state" base_name="argv'" display_name="argv'" hidden="true" identifier="argv'" mode="C" step_nr="11" thread="0">
+      <full_lhs_type>char *</full_lhs_type>
+      <full_lhs>argv'[0l]</full_lhs>
+      <full_lhs_value>((char *)NULL)</full_lhs_value>
+    </assignment>
+    <location-only hidden="false" step_nr="12" thread="0">
+      <location file="file1.c" line="3" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+    </location-only>
+    <function_call hidden="false" step_nr="13" thread="0">
+      <function display_name="main" identifier="main">
+        <location file="file1.c" line="3" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      </function>
+      <location file="file1.c" line="3" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+    </function_call>
+    <assignment assignment_type="actual_parameter" base_name="argc" display_name="main::argc" hidden="false" identifier="main::argc" mode="C" step_nr="14" thread="0">
+      <location file="file1.c" line="3" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>signed int</full_lhs_type>
+      <full_lhs>argc</full_lhs>
+      <full_lhs_value binary="00000000000000000000000000000000">0</full_lhs_value>
+    </assignment>
+    <assignment assignment_type="actual_parameter" base_name="argv" display_name="main::argv" hidden="false" identifier="main::argv" mode="C" step_nr="15" thread="0">
+      <location file="file1.c" line="3" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+      <full_lhs_type>char **</full_lhs_type>
+      <full_lhs>argv</full_lhs>
+      <full_lhs_value>argv'</full_lhs_value>
+    </assignment>
+    <failure hidden="false" property="main.pointer_dereference.5" reason="dereference failure: pointer outside object bounds in argv[(signed long int)2]" step_nr="16" thread="0">
+      <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+    </failure>
+  </goto_trace>
+</result>
+
+<result property="main.pointer_dereference.6" status="UNKNOWN">
+  <location file="file1.c" function="main" line="4" working-directory="/Users/ignacioramirez/facultad/ing-soft-ii/proyecto/test-herramientas"/>
+</result>
+
+<message type="STATUS-MESSAGE">
+  <text>VERIFICATION FAILED</text>
+</message>
+
+<cprover-status>FAILURE</cprover-status>
+
+</cprover>

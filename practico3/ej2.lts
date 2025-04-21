@@ -1,0 +1,16 @@
+const M = 4
+
+FORK = (get -> put -> FORK).
+
+PHIL = (sitdown -> right.get -> left.get 
+	-> eat 
+	-> left.put -> right.put
+	-> arise -> PHIL).
+
+BUTLER = BUT[0],
+BUT[i:0..M] = (when (i<M) phil.[i].sitdown -> BUT[i+1]
+				|when (i>0) phil.[i].arise -> BUT[i-1]).
+
+||DINERS(N=5) = 
+	forall [i:0..N-1]
+	(phil[i]:PHIL || {phil[i].left, phil[ ((i-1)+N) % N].right}::FORK || BUTLER).

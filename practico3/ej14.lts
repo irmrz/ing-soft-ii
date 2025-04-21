@@ -1,0 +1,30 @@
+const True = 1
+const False = 0
+range Bool = False..True
+range T = 1..2
+
+set BoolActions = {setTrue, setFalse, [False], [True]}
+
+BOOLVAR = VAL[False],
+VAL[v:Bool] = (setTrue -> VAL[True]
+			 | setFalse -> VAL[False]
+			 | [v] -> VAL[v]).
+
+VECINO = (izar -> (ocupado -> arriar -> VECINO 
+				 | vacio -> MORAS)),
+MORAS = (entrar -> recoger -> salir -> arriar -> VECINO).
+
+property MUTEX = (n1.entrar -> n1.salir -> MUTEX | n2.entrar -> n2.salir -> MUTEX).
+
+progress P = {n1.salir}
+
+||FRONTIER = ({n1,n2}:VECINO || MUTEX || {n1,n2}:BOOLVAR)/
+	{n1.izar/n1.setTrue,
+	 n1.arriar/n1.setFalse,
+	 n2.izar/n2.setTrue,
+	 n2.arriar/n2.setFalse,
+	 n1.vacio/n2.[False],
+	 n1.ocupado/n2.[True],
+	 n2.vacio/n1.[False],
+	 n2.ocupado/n1.[True]}.
+

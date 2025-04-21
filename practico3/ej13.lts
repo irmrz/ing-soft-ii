@@ -1,0 +1,10 @@
+const N = 10
+range T = 1..N+5
+
+property P = P[0],
+P[v:0..N] = (when (v < N) p[i:T].enter -> P[v+1]
+			| when (v > 0) p[i:T].exit -> P[v-1]).
+
+PERSON = (enter -> exit -> PERSON).
+
+||ELEVATOR = (P || p[T]:PERSON).

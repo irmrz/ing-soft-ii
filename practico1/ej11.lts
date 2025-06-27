@@ -1,0 +1,16 @@
+// Ejercicio 11
+range T = 0..3
+range B = 0..1
+
+PRENSA = PRENSA[0],
+PRENSA[j:B] = (when (j==0) b1.colocar -> PRENSA[j+1]
+			| when (j==1) prensar -> b2.retirar -> PRENSA[j-1]).
+
+CINTA = CINTA[0],
+CINTA[i:T] = (when (i==0) llega -> CINTA[i+1]
+			| when (i==1) frenar -> b1.extraer -> CINTA[i-1]).
+
+BRAZO1 = (extraer -> colocar -> BRAZO1).
+BRAZO2 = (retirar -> depositar -> BRAZO2).
+
+||CELULA = (PRENSA || CINTA || b1::BRAZO1 || b2::BRAZO2).
